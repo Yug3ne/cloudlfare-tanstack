@@ -13,7 +13,20 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "tanapp_db",
+			"database_name": "tanapp-db",
+			"database_id": "0bcaef9c-3ac8-41ed-95fd-d274ca81adf7",
+			// Local dev connects to the real remote database (remote bindings).
+			// Remove this line to develop against a local simulated D1 instead.
+			"remote": true,
+			// drizzle-kit v1 writes migrations as drizzle/<timestamp>_<name>/migration.sql
+			"migrations_dir": "drizzle",
+			"migrations_pattern": "drizzle/*/migration.sql"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
